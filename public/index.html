@@ -33,12 +33,19 @@
       <img src="/img/logo.svg" alt="" width="52" height="49">
       <span><b>Eben-Ezer</b><small>Fumigadora</small></span>
     </a>
-    <a class="btn btn-sm" href="https://wa.me/{{WHATSAPP}}?text=Hola%2C%20quiero%20una%20cotizaci%C3%B3n%20de%20fumigaci%C3%B3n" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg><span>Escribir por WhatsApp</span></a>
+    <nav class="nav" id="nav" aria-label="Principal">
+      <a href="#inicio">Inicio</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#beneficios">Beneficios</a>
+      <a href="#trabajos">Trabajos</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú"><span></span></button>
   </header>
 
   <main>
-    <section class="hero">
-      <img class="hero-bg" src="/img/hero-nebulizacion-puerta.jpg" alt="" width="1200" height="675" fetchpriority="high">
+    <section class="hero" id="inicio">
+      <div class="slides" aria-hidden="true"><img class="slide on" src="/img/hero-nebulizacion-puerta.jpg" alt="" fetchpriority="high"><img class="slide" src="/img/fondos/nebulizacion-calle-traje-blanco.jpg" alt="" loading="lazy"><img class="slide" src="/img/fondos/equipo-nebulizador.jpg" alt="" loading="lazy"><img class="slide" src="/img/fondos/rociado-exterior-pared.jpg" alt="" loading="lazy"></div>
       <div class="hero-shade"></div>
       <div class="hero-grid">
         <div class="hero-text">
@@ -64,6 +71,7 @@
           <button class="btn btn-wa" type="submit"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg><span>Enviar por WhatsApp</span><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></button>
         </form>
       </div>
+      <div class="dots" role="group" aria-label="Fotos de la portada"><button type="button" aria-label="Foto 1" class="on"></button><button type="button" aria-label="Foto 2"></button><button type="button" aria-label="Foto 3"></button><button type="button" aria-label="Foto 4"></button></div>
       <div class="hero-band" aria-hidden="true"></div>
     </section>
 
@@ -72,12 +80,20 @@
       <ul class="cards"><li class="card reveal" style="--d:0ms"><span class="num">01</span><h3>Mosquitos y zancudos</h3><p>Fumigación del mosquito adulto en casas, áreas verdes y exteriores.</p></li><li class="card reveal" style="--d:70ms"><span class="num">02</span><h3>Roedores y cucarachas</h3><p>Ratas, ratones y cucarachas en cocinas, depósitos y áreas comunes.</p></li><li class="card reveal" style="--d:140ms"><span class="num">03</span><h3>Comején y alacranes</h3><p>Tratamiento de estructuras y madera, y control de alacranes.</p></li><li class="card reveal" style="--d:210ms"><span class="num">04</span><h3>Palomas</h3><p>Control de la proliferación de palomas.</p></li><li class="card reveal" style="--d:280ms"><span class="num">05</span><h3>Serpientes</h3><p>Control de serpientes (ofidios).</p></li><li class="card reveal" style="--d:350ms"><span class="num">06</span><h3>Murciélagos y moscas</h3><p>Control de murciélagos y de moscas en el lugar.</p></li><li class="card reveal" style="--d:420ms"><span class="num">07</span><h3>Sanitización</h3><p>Sanitización contra virus y bacterias.</p></li><li class="card reveal" style="--d:490ms"><span class="num">08</span><h3>Fumigación hermética</h3><p>Fumigación sellando el área cuando el caso lo requiere.</p></li></ul>
     </section>
 
+    <section class="band" aria-label="Cotizar">
+      <div class="band-in reveal">
+        <h2>¿Tienes plagas en casa o en tu negocio?</h2>
+        <p>Cuéntanos qué pasa y te respondemos por WhatsApp.</p>
+        <a class="btn btn-wa" href="https://wa.me/{{WHATSAPP}}?text=Hola%2C%20quiero%20una%20cotizaci%C3%B3n%20de%20fumigaci%C3%B3n" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg><span>Escribir por WhatsApp</span><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+    </section>
+
     <section class="who" aria-label="Lugares que fumigamos">
       <h2 class="reveal">Fumigamos</h2>
       <div class="marquee"><ul class="chips"><li>Establecimientos comerciales</li><li>Residencias</li><li>Apartamentos</li><li>Industrias</li><li>Galeras</li><li>Oficinas</li><li>Áreas verdes</li><li>Depósitos</li><li>Escuelas</li><li>Restaurantes</li><li>Bares</li><li>Heladerías</li><li>Constructoras</li></ul></div>
     </section>
 
-    <section class="why">
+    <section class="why" id="beneficios">
       <div class="why-in">
         <h2 class="reveal">Lo que recibes</h2>
         <ul class="points">

@@ -66,3 +66,72 @@ document.querySelectorAll('.gallery button').forEach((b) =>
 lb.addEventListener('click', (e) => {
   if (e.target === lb || e.target.closest('.lb-x')) lb.close();
 });
+
+// Menú móvil
+const burger = document.querySelector('.burger');
+const nav = document.getElementById('nav');
+const setMenu = (open) => {
+  nav.classList.toggle('open', open);
+  burger.setAttribute('aria-expanded', open);
+};
+burger.addEventListener('click', () =>
+  setMenu(!nav.classList.contains('open')),
+);
+nav.addEventListener('click', (e) => {
+  if (e.target.closest('a')) setMenu(false);
+});
+addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') setMenu(false);
+});
+
+// Enlace activo según la sección visible
+const links = [...nav.querySelectorAll('a')];
+const secs = links
+  .map((a) => document.querySelector(a.getAttribute('href')))
+  .filter(Boolean);
+if ('IntersectionObserver' in window) {
+  const so = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((en) => {
+        if (!en.isIntersecting) return;
+        links.forEach((a) => {
+          if (a.getAttribute('href') === '#' + en.target.id)
+            a.setAttribute('aria-current', 'true');
+          else a.removeAttribute('aria-current');
+        });
+      });
+    },
+    { rootMargin: '-45% 0px -50% 0px' },
+  );
+  secs.forEach((s) => so.observe(s));
+}
+
+// Carrusel de la portada
+const slides = [...document.querySelectorAll('.slide')];
+const dots = [...document.querySelectorAll('.dots button')];
+let cur = 0,
+  timer;
+const show = (i) => {
+  cur = (i + slides.length) % slides.length;
+  slides.forEach((s, k) => s.classList.toggle('on', k === cur));
+  dots.forEach((d, k) => d.classList.toggle('on', k === cur));
+};
+const play = () => {
+  if (!reduce) {
+    clearInterval(timer);
+    timer = setInterval(() => show(cur + 1), 6500);
+  }
+};
+dots.forEach((d, k) =>
+  d.addEventListener('click', () => {
+    show(k);
+    play();
+  }),
+);
+const hero = document.querySelector('.hero');
+hero.addEventListener('mouseenter', () => clearInterval(timer));
+hero.addEventListener('mouseleave', play);
+document.addEventListener('visibilitychange', () =>
+  document.hidden ? clearInterval(timer) : play(),
+);
+play();
